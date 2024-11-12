@@ -616,14 +616,18 @@ static int __init rtw_drv_entry(void)
 
 	sdio_drvpriv.drv_registered = true;
 
+	DBG_871X_LEVEL(_drv_always_, "Fuyb 到此一游\n");
 	ret = sdio_register_driver(&sdio_drvpriv.r871xs_drv);
+
 	if (ret != 0) {
+		DBG_871X_LEVEL(_drv_always_, "驱动加载失败\n");
 		sdio_drvpriv.drv_registered = false;
 		rtw_ndev_notifier_unregister();
 		DBG_871X("%s: register driver failed!!(%d)\n", __func__, ret);
 		goto exit;
 	}
 
+	DBG_871X_LEVEL(_drv_always_, "驱动加载成功\n");
 	goto exit;
 
 exit:

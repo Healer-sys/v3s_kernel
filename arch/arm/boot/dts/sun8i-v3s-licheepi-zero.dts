@@ -81,6 +81,13 @@
 	status = "okay";
 };
 
+&mmc1 {
+	broken-cd;
+	bus-width = <4>;
+	vmmc-supply = <&reg_vcc3v3>;
+	status = "okay";
+};
+
 &emac {
        phy-handle = <&int_mii_phy>;
        phy-mode = "mii";
